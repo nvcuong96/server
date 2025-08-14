@@ -14,7 +14,6 @@ const verifyToken = (req, res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded; // Gán user vào req để dùng ở các route sau
-    console.log("Decoded user:", decoded);
     next();
   } catch (err) {
     return res.status(403).json({ msg: "Invalid or expired token." });

@@ -4,12 +4,12 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.js";
-import postRoutes from "./routes/userPost.js";
+import postRoutes from "./routes/adminPost.js";
 import chatRoutes from "./routes/chat.js";
 import http from "http";
 import { Server } from "socket.io";
 import Message from "./models/Message.js"; // Import Message model
-
+import forumPostRoutes from "./routes/forumPost.js"; // Import forum post routes
 
 
 dotenv.config();
@@ -59,5 +59,4 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/chat", chatRoutes);
-
-
+app.use("/api/forum", forumPostRoutes);

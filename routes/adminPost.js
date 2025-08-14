@@ -1,6 +1,6 @@
 // server/routes/post.js
 import express from "express";
-import Post from "../models/UserPost.js";
+import Post from "../models/AdminPost.js";
 import verifyToken from "../middleware/auth.js";
 
 const router = express.Router();
